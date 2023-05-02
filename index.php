@@ -4,6 +4,41 @@ require 'vendor/autoload.php';
 $router = new AltoRouter();
 $router->setBasePath('/super-week');
 
+
+// variables de connexion à la bdd
+$host = 'localhost';
+$dbname = 'super-week';
+$dbUser = 'root';
+$dbPass = '';
+
+try {
+    $bdd = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $dbUser, $dbPass);
+    $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $bdd->exec("set names utf8");
+} catch (PDOException $e) {
+    echo "Erreur : " . $e->getMessage();
+    die();
+}
+
+
+$faker = Faker\Factory::create('fr_FR');
+// création des users
+// for ($i = 0; $i < 10; $i++) {
+//     $firstname = $faker->firstName();
+//     $lastname = $faker->lastName();
+//     echo $firstname . ' ' . $lastname . '<br>';
+//     // to lowercase
+//     $mail = strtolower($firstname . '.' . $lastname . '@' . $faker->freeEmailDomain());
+//     echo $mail . '<br>';
+//     // insert
+//     $req = $bdd->prepare('INSERT INTO user (first_name, last_name, email) VALUES (:firstname, :lastname, :email)');
+//     $req->execute([
+//         'firstname' => $firstname,
+//         'lastname' => $lastname,
+//         'email' => $mail
+//     ]);
+// }
+
 // map homepage
 // $router->map('GET', '/', function () {
 //     echo "<h1>Bienvenu sur l’accueil</h1>";
