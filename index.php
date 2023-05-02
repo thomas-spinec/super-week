@@ -12,15 +12,15 @@ $router->setBasePath('/super-week');
 $router->addRoutes(array(
     // map homepage
     array('GET', '/', function () {
-        echo "<h1>Bienvenu sur l’accueil</h1>";
+        echo "<h1>Bienvenue sur l’accueil</h1>";
     }, 'home'),
     // map users details page
     array('GET', '/users', function () {
-        echo "<h1>Bienvenu sur la liste des utilisateurs</h1>";
+        echo "<h1>Bienvenue sur la liste des utilisateurs</h1>";
     }, 'users'),
     // map 1 user details page
     array('GET', '/users/[i:id]', function ($id) {
-        echo "<h1>Bienvenu sur la page de l'utilisateur $id</h1>";
+        echo "<h1>Bienvenue sur la page de l'utilisateur $id</h1>";
     }, 'user'),
 ));
 
