@@ -1,5 +1,9 @@
 <?php
+
+use App\Controller\UserController;
+
 require 'vendor/autoload.php';
+
 
 $router = new AltoRouter();
 $router->setBasePath('/super-week');
@@ -17,7 +21,9 @@ $router->addRoutes(array(
     }, 'home'),
     // map users details page
     array('GET', '/users', function () {
-        echo "<h1>Bienvenue sur la liste des utilisateurs</h1>";
+        $userController = new UserController();
+        $users = $userController->list();
+        echo $users;
     }, 'users'),
     // map 1 user details page
     array('GET', '/users/[i:id]', function ($id) {
