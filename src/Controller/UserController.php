@@ -12,5 +12,6 @@ class UserController
     {
         $userModel = new UserModel();
         $users = $userModel->findAll();
+        return json_encode($users);
     }
 }
