@@ -26,7 +26,13 @@ class UserModel
         }
     }
 
-    public function findAll()
+    public function fillBdd(array $values)
+    {
+        $req = $this->bdd->prepare('INSERT INTO user (first_name, last_name, email, password) VALUES (:firstname, :lastname, :email, :password)');
+        $req->execute($values);
+    }
+
+    public function findAll(): array|false
     {
         $req = $this->bdd->prepare('SELECT * FROM user');
         $req->execute();
