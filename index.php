@@ -37,7 +37,8 @@ $router->addRoutes(array(
     }, 'user-fill'),
     // map display register --------------------------------------------
     array('GET', '/register', function () {
-        require 'src/View/register.php';
+        $authController = new AuthController();
+        $authController->displayRegisterForm();
     }, 'display_register'),
     // map register ----------------------------------------------------
     array('POST', '/register', function () {
@@ -46,7 +47,8 @@ $router->addRoutes(array(
     }, 'register'),
     // map display login -----------------------------------------------
     array('GET', '/login', function () {
-        require 'src/View/login.php';
+        $authController = new AuthController();
+        $authController->displayLoginForm();
     }, 'display_login'),
     // map login -------------------------------------------------------
     array('POST', '/login', function () {

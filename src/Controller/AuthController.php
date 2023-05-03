@@ -6,6 +6,24 @@ use App\Model\UserModel;
 
 class AuthController
 {
+    public function displayRegisterForm()
+    {
+        if (!$_SESSION['user']) {
+            require 'src/View/register.php';
+        } else {
+            header('Location: /super-week');
+        }
+    }
+
+    public function displayLoginForm()
+    {
+        if (!$_SESSION['user']) {
+            require 'src/View/login.php';
+        } else {
+            header('Location: /super-week');
+        }
+    }
+
     public function register()
     {
         // initialisation des erreurs
