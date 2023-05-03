@@ -44,6 +44,15 @@ $router->addRoutes(array(
         $authController = new AuthController();
         $authController->register();
     }, 'register'),
+    // map display login
+    array('GET', '/login', function () {
+        require 'src/View/login.php';
+    }, 'display_login'),
+    // map login
+    array('POST', '/login', function () {
+        $authController = new AuthController();
+        $authController->login();
+    }, 'login'),
 ));
 
 
