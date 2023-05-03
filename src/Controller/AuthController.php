@@ -8,7 +8,7 @@ class AuthController
 {
     public function displayRegisterForm()
     {
-        if (!$_SESSION['user']) {
+        if (!isset($_SESSION['user'])) {
             require 'src/View/register.php';
         } else {
             header('Location: /super-week');
@@ -17,7 +17,7 @@ class AuthController
 
     public function displayLoginForm()
     {
-        if (!$_SESSION['user']) {
+        if (!isset($_SESSION['user'])) {
             require 'src/View/login.php';
         } else {
             header('Location: /super-week');
