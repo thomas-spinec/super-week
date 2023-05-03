@@ -74,4 +74,61 @@ class AuthController
             require 'src/View/register.php';
         }
     }
+
+    public function login()
+    {
+        // initialisation des erreurs
+        $errors = [];
+
+        // récupération des données
+        $email = htmlspecialchars(trim($_POST['email']));
+        $password = htmlspecialchars(trim($_POST['password']));
+
+        // vérification des champs
+
+        // vérification de l'email
+        if (empty($email)) {
+            $errors[] = 'L\'email est obligatoire';
+        } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $errors[] = 'L\'email n\'est pas valide';
+        }
+
+        // vérification du mot de passe
+        if (empty($password)) {
+            $errors[] = 'Le mot de passe est obligatoire';
+        }
+
+        // si il n'y a pas d'erreurs
+        if (empty($errors)) {
+            // vérification que l'email existe
+            $userModel = new UserModel();
+            $verif = $userModel->verifyEmail($email);
+            if ($verif) {
+                // vérification du mot de passe
+                $user = $userModel->getUser($email);
+                if (password_verify($password, $user['password'])) {
+                    // création de la session
+                    $_SESSION['user'] = [
+                        'id' => $user['id'],
+                        'firstname' => $user['first_name'],
+                        'lastname' => $user['last_name'],
+                        'email' => $user['email'],
+                    ];
+                    // redirection vers la page d'accueil
+                    header('Location: /super-week/');
+                } else {
+                    $errors[] = 'Le mot de passe est incorrect';
+                    // affichage des erreurs
+                    require 'src/View/login.php';
+                }
+            } else {
+                $errors[] = 'L\'email n\'existe pas';
+                // affichage des erreurs
+                require 'src/View/login.php';
+            }
+        } else {
+            // affichage des erreurs
+            require 'src/View/login.php';
+        }
+    }
 }
