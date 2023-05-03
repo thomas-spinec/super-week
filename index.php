@@ -17,42 +17,47 @@ $router->setBasePath('/super-week');
 // }, 'home');
 
 $router->addRoutes(array(
-    // map homepage
+    // map homepage ----------------------------------------------------
     array('GET', '/', function () {
         require 'src/View/home.php';
     }, 'home'),
-    // map users details page
+    // map users details page ------------------------------------------
     array('GET', '/users', function () {
         $userController = new UserController();
         $userController->list();
     }, 'users'),
-    // map 1 user details
+    // map 1 user details ----------------------------------------------
     array('GET', '/users/[i:id]', function ($id) {
         echo "<h1>Bienvenue sur la page de l'utilisateur $id</h1>";
     }, 'user'),
-    // map fill bdd user
+    // map fill bdd user -----------------------------------------------
     array('GET', '/users/fill', function () {
         $userController = new UserController();
         $userController->fill();
     }, 'user-fill'),
-    // map display register 
+    // map display register --------------------------------------------
     array('GET', '/register', function () {
         require 'src/View/register.php';
     }, 'display_register'),
-    // map register
+    // map register ----------------------------------------------------
     array('POST', '/register', function () {
         $authController = new AuthController();
         $authController->register();
     }, 'register'),
-    // map display login
+    // map display login -----------------------------------------------
     array('GET', '/login', function () {
         require 'src/View/login.php';
     }, 'display_login'),
-    // map login
+    // map login -------------------------------------------------------
     array('POST', '/login', function () {
         $authController = new AuthController();
         $authController->login();
     }, 'login'),
+    // map logout ------------------------------------------------------
+    array('GET', '/logout', function () {
+        $authController = new AuthController();
+        $authController->logout();
+    }, 'logout'),
 ));
 
 
