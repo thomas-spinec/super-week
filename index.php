@@ -1,7 +1,9 @@
 <?php
 session_start();
 // use AltoRouter;
+use AltoRouter;
 use App\Controller\AuthController;
+use App\Controller\HomeController;
 use App\Controller\UserController;
 
 require 'vendor/autoload.php';
@@ -19,7 +21,8 @@ $router->setBasePath('/super-week');
 $router->addRoutes(array(
     // map homepage ----------------------------------------------------
     array('GET', '/', function () {
-        require 'src/View/home.php';
+        $homeController = new HomeController();
+        $homeController->displayHome();
     }, 'home'),
     // map users details page ------------------------------------------
     array('GET', '/users', function () {
