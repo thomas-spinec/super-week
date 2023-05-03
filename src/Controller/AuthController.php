@@ -63,7 +63,7 @@ class AuthController
             ]);
             if ($response) {
                 // redirection vers la page de connexion
-                header('Location: /login');
+                header('Location: /super-week/login');
             } else {
                 $errors[] = 'Erreur lors de l\'inscription';
                 // affichage des erreurs

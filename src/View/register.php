@@ -12,8 +12,8 @@
 
     <h1>register</h1>
 
-    <?php if (isset($error)) : ?>
-        <?php foreach ($error as $err) : ?>
+    <?php if (isset($errors)) : ?>
+        <?php foreach ($errors as $err) : ?>
             <p><?= $err ?></p>
         <?php endforeach; ?>
     <?php endif; ?>

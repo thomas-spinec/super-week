@@ -1,6 +1,6 @@
 <?php
 
-use AltoRouter;
+// use AltoRouter;
 use App\Controller\AuthController;
 use App\Controller\UserController;
 
