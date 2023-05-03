@@ -1,5 +1,7 @@
 <?php
 
+use AltoRouter;
+use App\Controller\AuthController;
 use App\Controller\UserController;
 
 require 'vendor/autoload.php';
@@ -33,6 +35,15 @@ $router->addRoutes(array(
         $userController = new UserController();
         $userController->fill();
     }, 'user-fill'),
+    // map display register 
+    array('GET', '/register', function () {
+        require 'src/View/register.php';
+    }, 'display_register'),
+    // map register
+    array('POST', '/register', function () {
+        $authController = new AuthController();
+        $authController->register();
+    }, 'register'),
 ));
 
 

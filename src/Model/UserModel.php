@@ -39,4 +39,24 @@ class UserModel
         $users = $req->fetchAll(\PDO::FETCH_ASSOC);
         return $users;
     }
+
+    public function verifyEmail(string $email): bool
+    {
+        $req = $this->bdd->prepare('SELECT * FROM user WHERE email = :email');
+        $req->execute(['email' => $email]);
+        $user = $req->fetch(\PDO::FETCH_ASSOC);
+        if ($user) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function createUser(array $values)
+    {
+        $req = $this->bdd->prepare('INSERT INTO user (first_name, last_name, email, password) VALUES (:firstname, :lastname, :email, :password)');
+        $req->execute($values);
+
+        return $req;
+    }
 }
