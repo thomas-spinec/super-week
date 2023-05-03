@@ -52,6 +52,18 @@ class UserModel
         }
     }
 
+    public function getUser(string $email): array|false
+    {
+        $req = $this->bdd->prepare('SELECT * FROM user WHERE email = :email LIMIT 1');
+        $req->execute(['email' => $email]);
+        $user = $req->fetch(\PDO::FETCH_ASSOC);
+        if ($user) {
+            return $user;
+        } else {
+            return false;
+        }
+    }
+
     public function createUser(array $values)
     {
         $req = $this->bdd->prepare('INSERT INTO user (first_name, last_name, email, password) VALUES (:firstname, :lastname, :email, :password)');

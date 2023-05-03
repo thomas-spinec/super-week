@@ -102,15 +102,16 @@ class AuthController
         if (empty($errors)) {
             // vérification que l'email existe
             $userModel = new UserModel();
-            $user = $userModel->verifyEmail($email);
-            if ($user) {
+            $verif = $userModel->verifyEmail($email);
+            if ($verif) {
                 // vérification du mot de passe
+                $user = $userModel->getUser($email);
                 if (password_verify($password, $user['password'])) {
                     // création de la session
                     $_SESSION['user'] = [
                         'id' => $user['id'],
-                        'firstname' => $user['firstname'],
-                        'lastname' => $user['lastname'],
+                        'firstname' => $user['first_name'],
+                        'lastname' => $user['last_name'],
                         'email' => $user['email'],
                     ];
                     // redirection vers la page d'accueil
