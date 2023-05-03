@@ -2,16 +2,39 @@
 
 namespace App\Controller;
 
+use Faker;
 use App\Model\UserModel;
 
 class UserController
 {
 
+    public function fill()
+    {
+        $faker = Faker\Factory::create();
+
+        // création des users
+        for ($i = 0; $i < 20; $i++) {
+            $firstname = $faker->firstName();
+            $lastname = $faker->lastName();
+            // to lowercase
+            $mail = strtolower($firstname . '.' . $lastname . '@' . $faker->freeEmailDomain());
+            // insert
+            $userModel = new UserModel();
+            $userModel->fillBdd([
+                'firstname' => $firstname,
+                'lastname' => $lastname,
+                'email' => $mail,
+                'password' => password_hash('azerty', PASSWORD_DEFAULT),
+            ]);
+        };
+    }
 
     public function list()
     {
         $userModel = new UserModel();
         $users = $userModel->findAll();
-        return json_encode($users);
+        if ($users) {
+            require 'src/View/list_user.php';
+        }
     }
 }
