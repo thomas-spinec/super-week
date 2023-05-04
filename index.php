@@ -70,6 +70,11 @@ $router->addRoutes(array(
         $bookController = new BookController();
         $bookController->displayBookForm();
     }, 'display_book_form'),
+    // map add book ----------------------------------------------------
+    array('POST', '/books/write', function () {
+        $bookController = new BookController();
+        $bookController->addBook();
+    }, 'add_book'),
 ));
 
 

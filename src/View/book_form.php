@@ -10,6 +10,10 @@
 
 <body>
 
+    <?php if (isset($error['empty'])) : ?>
+        <p><?= $error['empty'] ?></p>
+    <?php endif; ?>
+
 
     <form action="" method="post">
         <label for="titre">Titre:</label>
