@@ -75,6 +75,11 @@ $router->addRoutes(array(
         $bookController = new BookController();
         $bookController->addBook();
     }, 'add_book'),
+    // map list books --------------------------------------------------
+    array('GET', '/books', function () {
+        $bookController = new BookController();
+        $bookController->list();
+    }, 'books'),
 ));
 
 

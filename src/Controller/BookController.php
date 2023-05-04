@@ -37,7 +37,9 @@ class BookController
 
     public function list()
     {
-        echo "<h1>liste des livres</h1>";
+        $bookModel = new BookModel();
+        $books = $bookModel->findAll();
+        echo json_encode($books);
     }
     public function details($id)
     {
