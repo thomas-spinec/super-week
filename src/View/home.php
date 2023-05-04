@@ -19,6 +19,21 @@
 
     <?php endif; ?>
 
+    <br><br>
+    <button id="users">Liste des utilisateurs</button>
+    <button id="books">Liste des livres</button>
+    <br><br>
+    <label for="idUser">Id Autheur</label>
+    <input type="number" name="idUser" id="idUser">
+    <button id="submitUser">Chercher</button>
+    <br><br>
+    <label for="idBook">Id Livre</label>
+    <input type="number" name="idBook" id="idBook">
+    <button id="submitBook">Chercher</button>
+
+    <div id="result"></div>
+
+
 </body>
 
 </html>
