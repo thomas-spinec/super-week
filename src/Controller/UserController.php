@@ -37,4 +37,15 @@ class UserController
             require 'src/View/list_user.php';
         }
     }
+
+    public function details($id)
+    {
+        $userModel = new UserModel();
+        $user = $userModel->findOneById($id);
+        if ($user) {
+            echo json_encode($user);
+        } else {
+            echo json_encode(['error' => 'user not found']);
+        }
+    }
 }

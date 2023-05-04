@@ -71,4 +71,12 @@ class UserModel
 
         return $req;
     }
+
+    public function findOneById($id)
+    {
+        $req = $this->bdd->prepare('SELECT * FROM user WHERE id = :id');
+        $req->execute(['id' => $id]);
+        $user = $req->fetch(\PDO::FETCH_ASSOC);
+        return $user;
+    }
 }
