@@ -45,6 +45,10 @@ class BookController
     {
         $bookModel = new BookModel();
         $book = $bookModel->findOneById($id);
-        echo json_encode($book);
+        if (!$book) {
+            echo json_encode(['error' => 'book not found']);
+        } else {
+            echo json_encode($book);
+        }
     }
 }
