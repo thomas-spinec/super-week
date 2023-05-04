@@ -34,4 +34,12 @@ class BookModel
             'auteur_id' => $auteurId
         ]);
     }
+
+    public function findAll()
+    {
+        $req = $this->bdd->prepare('SELECT * FROM book');
+        $req->execute();
+        $books = $req->fetchAll(\PDO::FETCH_ASSOC);
+        return $books;
+    }
 }
