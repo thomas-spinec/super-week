@@ -31,7 +31,8 @@ $router->addRoutes(array(
     }, 'users'),
     // map 1 user details ----------------------------------------------
     array('GET', '/users/[i:id]', function ($id) {
-        echo "<h1>Bienvenue sur la page de l'utilisateur $id</h1>";
+        $userController = new UserController();
+        $userController->details($id);
     }, 'user'),
     // map fill bdd user -----------------------------------------------
     array('GET', '/users/fill', function () {
