@@ -3,6 +3,7 @@ session_start();
 // use AltoRouter;
 use AltoRouter;
 use App\Controller\AuthController;
+use App\Controller\BookController;
 use App\Controller\HomeController;
 use App\Controller\UserController;
 
@@ -64,6 +65,16 @@ $router->addRoutes(array(
         $authController = new AuthController();
         $authController->logout();
     }, 'logout'),
+    // map display book form -------------------------------------------
+    array('GET', '/books/write', function () {
+        $bookController = new BookController();
+        $bookController->displayBookForm();
+    }, 'display_book_form'),
+    // map add book ----------------------------------------------------
+    array('POST', '/books/write', function () {
+        $bookController = new BookController();
+        $bookController->addBook();
+    }, 'add_book'),
 ));
 
 
