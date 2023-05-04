@@ -43,6 +43,8 @@ class BookController
     }
     public function details($id)
     {
-        echo "<h1>details du livre $id</h1>";
+        $bookModel = new BookModel();
+        $book = $bookModel->findOneById($id);
+        echo json_encode($book);
     }
 }

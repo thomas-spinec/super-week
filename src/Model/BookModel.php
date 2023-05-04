@@ -42,4 +42,14 @@ class BookModel
         $books = $req->fetchAll(\PDO::FETCH_ASSOC);
         return $books;
     }
+
+    public function findOneById(int $id)
+    {
+        $req = $this->bdd->prepare('SELECT * FROM book WHERE id = :id');
+        $req->execute([
+            'id' => $id
+        ]);
+        $book = $req->fetch(\PDO::FETCH_ASSOC);
+        return $book;
+    }
 }
