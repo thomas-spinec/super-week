@@ -1,7 +1,6 @@
 <?php
 session_start();
 // use AltoRouter;
-use AltoRouter;
 use App\Controller\AuthController;
 use App\Controller\BookController;
 use App\Controller\HomeController;
@@ -80,6 +79,11 @@ $router->addRoutes(array(
         $bookController = new BookController();
         $bookController->list();
     }, 'books'),
+    // map 1 book details ----------------------------------------------
+    array('GET', '/books/[i:id]', function ($id) {
+        $bookController = new BookController();
+        $bookController->details($id);
+    }, 'book'),
 ));
 
 
