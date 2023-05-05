@@ -56,8 +56,8 @@ class AuthController
         } else {
             // vérification que l'email n'existe pas déjà
             $userModel = new UserModel();
-            $user = $userModel->verifyEmail($email);
-            if ($user) {
+            $user = $userModel->findOneBy('email', $email);
+            if ($user !== false) {
                 $errors[] = 'L\'email existe déjà';
             }
         }
@@ -120,10 +120,9 @@ class AuthController
         if (empty($errors)) {
             // vérification que l'email existe
             $userModel = new UserModel();
-            $verif = $userModel->verifyEmail($email);
-            if ($verif) {
+            $user = $userModel->findOneBy('email', $email);
+            if ($user !== false) {
                 // vérification du mot de passe
-                $user = $userModel->getUser($email);
                 if (password_verify($password, $user['password'])) {
                     // création de la session
                     $_SESSION['user'] = [

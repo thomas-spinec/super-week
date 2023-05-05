@@ -18,73 +18,73 @@ $router->setBasePath('/super-week');
 //     echo "<h1>Bienvenu sur l’accueil</h1>";
 // }, 'home');
 
-$router->addRoutes(array(
+$router->addRoutes([
     // map homepage ----------------------------------------------------
-    array('GET', '/', function () {
+    ['GET', '/', function () {
         $homeController = new HomeController();
         $homeController->displayHome();
-    }, 'home'),
+    }, 'home'],
     // map users details page ------------------------------------------
-    array('GET', '/users', function () {
+    ['GET', '/users', function () {
         $userController = new UserController();
         $userController->list();
-    }, 'users'),
+    }, 'users'],
     // map 1 user details ----------------------------------------------
-    array('GET', '/users/[i:id]', function ($id) {
+    ['GET', '/users/[i:id]', function ($id) {
         $userController = new UserController();
         $userController->details($id);
-    }, 'user'),
+    }, 'user'],
     // map fill bdd user -----------------------------------------------
-    array('GET', '/users/fill', function () {
+    ['GET', '/users/fill', function () {
         $userController = new UserController();
         $userController->fill();
-    }, 'user-fill'),
+    }, 'user-fill'],
     // map display register --------------------------------------------
-    array('GET', '/register', function () {
+    ['GET', '/register', function () {
         $authController = new AuthController();
         $authController->displayRegisterForm();
-    }, 'display_register'),
+    }, 'display_register'],
     // map register ----------------------------------------------------
-    array('POST', '/register', function () {
+    ['POST', '/register', function () {
         $authController = new AuthController();
         $authController->register();
-    }, 'register'),
+    }, 'register'],
     // map display login -----------------------------------------------
-    array('GET', '/login', function () {
+    ['GET', '/login', function () {
         $authController = new AuthController();
         $authController->displayLoginForm();
-    }, 'display_login'),
+    }, 'display_login'],
     // map login -------------------------------------------------------
-    array('POST', '/login', function () {
+    ['POST', '/login', function () {
         $authController = new AuthController();
         $authController->login();
-    }, 'login'),
+    }, 'login'],
     // map logout ------------------------------------------------------
-    array('GET', '/logout', function () {
+    ['GET', '/logout', function () {
         $authController = new AuthController();
         $authController->logout();
-    }, 'logout'),
+    }, 'logout'],
     // map display book form -------------------------------------------
-    array('GET', '/books/write', function () {
+    ['GET', '/books/write', function () {
         $bookController = new BookController();
         $bookController->displayBookForm();
-    }, 'display_book_form'),
+    }, 'display_book_form'],
     // map add book ----------------------------------------------------
-    array('POST', '/books/write', function () {
+    ['POST', '/books/write', function () {
         $bookController = new BookController();
         $bookController->addBook();
-    }, 'add_book'),
+    }, 'add_book'],
     // map list books --------------------------------------------------
-    array('GET', '/books', function () {
+    ['GET', '/books', function () {
         $bookController = new BookController();
         $bookController->list();
-    }, 'books'),
+    }, 'books'],
     // map 1 book details ----------------------------------------------
-    array('GET', '/books/[i:id]', function ($id) {
+    ['GET', '/books/[i:id]', function ($id) {
         $bookController = new BookController();
         $bookController->details($id);
-    }, 'book'),
-));
+    }, 'book'],
+]);
 
 
 // match

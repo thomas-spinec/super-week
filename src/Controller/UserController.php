@@ -44,7 +44,7 @@ class UserController
     public function details($id)
     {
         $userModel = new UserModel();
-        $user = $userModel->findOneById($id);
+        $user = $userModel->findOneBy('id', $id);
         if ($user) {
             echo json_encode($user);
         } else {

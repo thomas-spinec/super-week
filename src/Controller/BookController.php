@@ -44,7 +44,7 @@ class BookController
     public function details($id)
     {
         $bookModel = new BookModel();
-        $book = $bookModel->findOneById($id);
+        $book = $bookModel->findOneBy('id', $id);
         if (!$book) {
             echo json_encode(['error' => 'book not found']);
         } else {
