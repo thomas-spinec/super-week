@@ -34,7 +34,10 @@ class UserController
         $userModel = new UserModel();
         $users = $userModel->findAll();
         if ($users) {
-            require 'src/View/list_user.php';
+            // require 'src/View/list_user.php';
+            echo json_encode($users);
+        } else {
+            echo json_encode(['error' => 'no user found']);
         }
     }
 
