@@ -5,33 +5,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>register</title>
 </head>
 
 <body>
 
-    <h1>register</h1>
+    <header>
+        <h1>Projet Super-week</h1>
+    </header>
 
-    <?php if (isset($errors)) : ?>
-        <?php foreach ($errors as $err) : ?>
-            <p><?= $err ?></p>
-        <?php endforeach; ?>
-    <?php endif; ?>
+    <main>
+        <h2>register</h2>
+
+        <?php if (isset($errors)) : ?>
+            <?php foreach ($errors as $err) : ?>
+                <p><?= $err ?></p>
+            <?php endforeach; ?>
+        <?php endif; ?>
 
 
-    <form action="" method="post">
-        <label for="firstname">Prénom</label>
-        <input type="text" name="firstname" id="firstname">
-        <label for="lastname">Nom</label>
-        <input type="text" name="lastname" id="lastname">
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email">
-        <label for="password">Mot de passe</label>
-        <input type="password" name="password" id="password">
-        <label for="password_confirm">Confirmer le mot de passe</label>
-        <input type="password" name="password_confirm" id="password_confirm">
-        <input type="submit" value="Envoyer">
-    </form>
+        <form action="" method="post">
+            <input type="text" name="firstname" id="firstname" placeholder="Prénom">
+            <input type="text" name="lastname" id="lastname" placeholder="Nom">
+            <input type="email" name="email" id="email" placeholder="Email">
+            <input type="password" name="password" id="password" placeholder="Mot de passe">
+            <input type="password" name="password_confirm" id="password_confirm" placeholder="Confirmer">
+            <input type="submit" value="Envoyer">
+        </form>
+    </main>
 
 </body>
 

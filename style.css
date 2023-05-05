@@ -1,0 +1,174 @@
+/* styles généraux */
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  margin: 0;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+p {
+  margin: 0 0 1.5rem;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #000;
+}
+
+/* input type submit aussi */
+button,
+input[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+}
+
+button:hover,
+input[type="submit"]:hover {
+  background-color: #000;
+}
+
+a,
+button,
+input[type="submit"] {
+  cursor: pointer;
+}
+
+/* header */
+header {
+  background-color: #fff;
+  padding: 1rem 0;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: center;
+}
+
+/* main */
+main {
+  padding: 1rem 0;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.flex_row {
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.flex_row > a {
+  padding: 0 0.5rem;
+}
+
+.flex_row > button {
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+}
+
+.row {
+  max-width: 800px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem 0;
+}
+
+.w-10 {
+  width: 10%;
+}
+
+.w-20 {
+  min-width: 20%;
+}
+
+.w-30 {
+  min-width: 30%;
+}
+
+.row button {
+  padding: 0.5rem 1rem;
+}
+
+#result {
+  display: none;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid #eee;
+  border-radius: 0.5rem;
+  max-height: 500px;
+  overflow-y: scroll;
+}
+
+form {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+form > * {
+  flex-basis: 45%;
+  margin: 0.5rem 0.5rem;
+  padding: 0.5rem;
+}
+
+form > textarea {
+  flex-basis: 93%;
+}

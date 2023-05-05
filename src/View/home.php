@@ -6,33 +6,62 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script/home.js" defer></script>
+    <link rel="stylesheet" href="style.css">
     <title>Acceuil</title>
 </head>
 
 <body>
-    <h1>Acceuil</h1>
-    <?php if (isset($_SESSION['user'])) : ?>
-        <p>Bonjour <?= $_SESSION['user']['firstname'] ?></p>
-        <a href="logout">Se déconnecter</a>
-    <?php else : ?>
-        <a href="register">S'inscrire</a>
-        <a href="login">Se connecter</a>
+    <header>
+        <h1>Projet Super-week</h1>
+    </header>
 
-    <?php endif; ?>
+    <main>
+        <h3>Acceuil</h3>
+        <?php if (isset($_SESSION['user'])) : ?>
+            <p>Bonjour <?= $_SESSION['user']['firstname'] ?></p>
+            <div class="flex_row">
+                <a href="logout">Se déconnecter</a>
+                <a href="books/write">Ecrire un livre</a>
+            </div>
+        <?php else : ?>
+            <p>Bonjour visiteur</p>
+            <div class="flex_row">
+                <a href="register">S'inscrire</a>
+                <a href="login">Se connecter</a>
+            </div>
+        <?php endif; ?>
 
-    <br><br>
-    <button id="users">Liste des utilisateurs</button>
-    <button id="books">Liste des livres</button>
-    <br><br>
-    <label for="idUser">Id utilisateur</label>
-    <input type="number" name="idUser" id="idUser" min="0">
-    <button id="submitUser">Chercher</button>
-    <br><br>
-    <label for="idBook">Id Livre</label>
-    <input type="number" name="idBook" id="idBook" min="0">
-    <button id="submitBook">Chercher</button>
+        <div class="container">
+            <div class="row">
+                <div class="col w-20">
+                    <button id="users">Liste des utilisateurs</button>
+                </div>
+                <div class="col w-20">
+                    <button id="books">Liste des livres</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="number" name="idUser" id="idUser" min="0" placeholder="id">
+                </div>
+                <div class="col w-20">
+                    <button id="submitUser">Utilisateur</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="number" name="idBook" id="idBook" min="0" placeholder="id">
+                </div>
+                <div class="col w-20">
+                    <button id="submitBook">Livre</button>
+                </div>
+            </div>
 
-    <div id="result"></div>
+        </div>
+
+        <div id="result"></div>
+    </main>
+
 
 
 </body>

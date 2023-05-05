@@ -10,6 +10,7 @@ btnUsers.addEventListener("click", async () => {
   const promise = await fetch("/super-week/users");
   const users = await promise.json();
   div.innerHTML = "";
+  div.style.display = "block";
   // if users.error est défini
   if (users.error) {
     const p = document.createElement("p");
@@ -31,6 +32,7 @@ btnBooks.addEventListener("click", async () => {
   const promise = await fetch("/super-week/books");
   const books = await promise.json();
   div.innerHTML = "";
+  div.style.display = "block";
   // if books.error est défini
   if (books.error) {
     const p = document.createElement("p");
@@ -55,6 +57,7 @@ btnIdUser.addEventListener("click", async () => {
   const promise = await fetch(`/super-week/users/${inputIdUser.value}`);
   const user = await promise.json();
   div.innerHTML = "";
+  div.style.display = "block";
   // if user.error est défini
   if (user.error) {
     const p = document.createElement("p");
@@ -74,6 +77,8 @@ btnIdBook.addEventListener("click", async () => {
   const promise = await fetch(`/super-week/books/${inputIdBook.value}`);
   const book = await promise.json();
   div.innerHTML = "";
+  div.style.display = "block";
+
   // if book.error est défini
   if (book.error) {
     const p = document.createElement("p");
