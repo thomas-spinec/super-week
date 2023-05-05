@@ -26,6 +26,9 @@ abstract class AbstractModel
         }
     }
 
+    /**
+     * @return array
+     */
     public function findAll(): array|false
     {
         $req = $this->bdd->prepare("SELECT * FROM $this->table");
@@ -34,7 +37,13 @@ abstract class AbstractModel
         return $results;
     }
 
-    public function findOneBy($colname, $value): array|false
+    /**
+     * @param string $colname
+     * @param mixed $value
+     * 
+     * @return array
+     */
+    public function findOneBy(string $colname, $value): array|false
     {
         $req = $this->bdd->prepare("SELECT * FROM $this->table WHERE $colname = :$colname");
         $req->execute([
